@@ -1,0 +1,110 @@
+<button (click)="navigate('/')">Ir a Arbritaje</button>
+
+<mat-tab-group>
+  <mat-tab label="Binance"> 
+    <table mat-table [dataSource]="binanceData" class="mat-elevation-z8">
+    
+      <!-- Ticker Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Par </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
+      </ng-container>
+    
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Precio </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.price}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons >
+    </mat-paginator>
+        
+  </mat-tab>
+
+  <mat-tab label="Kucoin">
+    <table mat-table [dataSource]="kucoinData.data.ticker" class="mat-elevation-z8">
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Par </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
+      </ng-container>
+    
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Precio </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.last}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-tab>
+
+  <mat-tab label="Bybit">
+    <table mat-table [dataSource]="bybitData.result" class="mat-elevation-z8">
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Par </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
+      </ng-container>
+    
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Precio </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.last_price}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-tab>
+
+  <mat-tab label="Poloniex">
+    <table mat-table [dataSource]="poloniexData" class="mat-elevation-z8">
+    
+      <!-- Ticker Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Par </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
+      </ng-container>
+    
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Precio </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.price}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-tab>
+
+  <mat-tab label="FTX">
+    <table mat-table [dataSource]="ftxData.result" class="mat-elevation-z8">
+    
+      <!-- Ticker Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Par </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.name}} </td>
+      </ng-container>
+    
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Precio </th>
+        <td mat-cell *matCellDef="let coin"> {{coin.price}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-tab>
+  <mat-tab label="Gate.io"> Content 2 </mat-tab>
+  <mat-tab label="Hitbtc"> Content 2 </mat-tab>
+  <mat-tab label="Houbi"> Content 2 </mat-tab>
+</mat-tab-group>

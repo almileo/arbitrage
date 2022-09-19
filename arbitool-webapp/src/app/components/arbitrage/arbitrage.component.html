@@ -1,0 +1,48 @@
+<body>
+  <button (click)="navigate('/exchanges')">Ir a Exchanges</button>
+
+  <table mat-table [dataSource]="data" class="mat-elevation-z8">
+    
+    <!-- Ticker Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Par </th>
+      <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
+    </ng-container>
+  
+    <!-- Exchages Columns -->    
+    <ng-container matColumnDef="binance">
+      <th mat-header-cell *matHeaderCellDef> Binance </th>
+      <td mat-cell *matCellDef="let coin"> {{coin.prices.binance}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="kucoin">
+      <th mat-header-cell *matHeaderCellDef> Kucoin </th>
+      <td mat-cell *matCellDef="let coin"> {{coin.prices.kucoin}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bybit">
+      <th mat-header-cell *matHeaderCellDef> Bybit </th>
+      <td mat-cell *matCellDef="let coin"> {{coin.prices.bybit}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="poloniex">
+      <th mat-header-cell *matHeaderCellDef> Poloniex </th>
+      <td mat-cell *matCellDef="let coin"> {{coin.prices.poloniex}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ftx">
+      <th mat-header-cell *matHeaderCellDef> FTX </th>
+      <td mat-cell *matCellDef="let coin"> {{coin.prices.ftx}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="profit">
+      <th mat-header-cell *matHeaderCellDef> Rentabilidad </th>
+      <td mat-cell *matCellDef="let coin">{{ coin.profit }} % </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+</body>
+
