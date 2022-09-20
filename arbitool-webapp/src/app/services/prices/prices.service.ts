@@ -13,23 +13,23 @@ export class PricesService {
   ) { }
   
   public getBinancePrices() {
-    return this.http.get(ConstantURL.binance.url);
+    return this.http.get(ConstantURL.binance.url).toPromise();
   }
 
   public getKucoinPrices() {
-    return this.http.get(ConstantURL.kucoin.url);
+    return this.http.get(ConstantURL.kucoin.url).toPromise();
   }
 
   public getBybitPrices() {
-    return this.http.get(ConstantURL.bybit.url);
+    return this.http.get(ConstantURL.bybit.url).toPromise();
   }
 
   public getPoloniexPrices() {
-    return this.http.get(ConstantURL.poloniex.url);
+    return this.http.get(ConstantURL.poloniex.url).toPromise();
   }
 
   public getFTXPrices() {
-    return this.http.get(ConstantURL.ftx.url);
+    return this.http.get(ConstantURL.ftx.url).toPromise();
   }
   
 

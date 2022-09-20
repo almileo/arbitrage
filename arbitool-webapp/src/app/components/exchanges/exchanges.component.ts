@@ -31,21 +31,21 @@ export class ExchangesComponent implements OnInit {
 
   ngOnInit() {
     // this.updatePrices();
-    this.getBinance();
-    this.getKucoin();
-    this.getBybit();
-    this.getPoloniex();
-    this.getFTX();
+    // this.getBinance();
+    // this.getKucoin();
+    // this.getBybit();
+    // this.getPoloniex();
+    // this.getFTX();
   }
 
   updatePrices() {
     
     setInterval(() => {
-      this.getBinance();
-      this.getKucoin();
-      this.getBybit();
-      this.getPoloniex();
-      this.getFTX();
+      // this.getBinance();
+      // this.getKucoin();
+      // this.getBybit();
+      // this.getPoloniex();
+      // this.getFTX();
     }, 5000);
   }
 
@@ -54,42 +54,42 @@ export class ExchangesComponent implements OnInit {
   }
 
 
-  getBinance() {
-    this.priceService.getBinancePrices().subscribe((res) => {      
-      this.binanceData = res;
-      console.log('binance: ', this.binanceData);
+  // getBinance() {
+  //   this.priceService.getBinancePrices().subscribe((res) => {      
+  //     this.binanceData = res;
+  //     console.log('binance: ', this.binanceData);
       
-    });    
-  }
+  //   });    
+  // }
 
-  getKucoin() {
-    this.priceService.getKucoinPrices().subscribe((res) => {      
-      this.kucoinData = res
-      console.log('kucoin: ', this.kucoinData.data.ticker);      
-    });    
-  }
+  // getKucoin() {
+  //   this.priceService.getKucoinPrices().subscribe((res) => {      
+  //     this.kucoinData = res
+  //     console.log('kucoin: ', this.kucoinData.data.ticker);      
+  //   });    
+  // }
 
-  getBybit() {
-    this.priceService.getBybitPrices().subscribe((res) => {      
-      this.bybitData = res
-      console.log('bybit: ', this.bybitData.result);
-    });    
-  }
+  // getBybit() {
+  //   this.priceService.getBybitPrices().subscribe((res) => {      
+  //     this.bybitData = res
+  //     console.log('bybit: ', this.bybitData.result);
+  //   });    
+  // }
 
-  getPoloniex() {
-    this.priceService.getPoloniexPrices().subscribe((res) => {      
-      this.poloniexData = res
-      console.log('poloniex: ', this.poloniexData);
-    });    
-  }
+  // getPoloniex() {
+  //   this.priceService.getPoloniexPrices().subscribe((res) => {      
+  //     this.poloniexData = res
+  //     console.log('poloniex: ', this.poloniexData);
+  //   });    
+  // }
   
-  getFTX() {
-    this.priceService.getFTXPrices().subscribe((res) => {
-      this.ftxData = res;
-      console.log('FTX: ', this.ftxData.result);
+  // getFTX() {
+  //   this.priceService.getFTXPrices().subscribe((res) => {
+  //     this.ftxData = res;
+  //     console.log('FTX: ', this.ftxData.result);
       
-    })
-  }
+  //   })
+  // }
 
 
 }
