@@ -112,6 +112,8 @@ export class ArbitrageComponent implements OnInit {
       const profit = ((max - min) / max) * 100 
       e.profit = profit.toFixed(2)
     })
+
+    this.data.sort((a,b) => b.profit - a.profit)
   }
     
       
