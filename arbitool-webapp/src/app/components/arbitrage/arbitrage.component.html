@@ -1,38 +1,87 @@
 <body>
   <button mat-button (click)="navigate('/exchanges')">Ir a Exchanges</button>
 
-  <table mat-table [dataSource]="data" class="mat-elevation-z8">
+  <div>
+    <mat-spinner *ngIf="!isDataExchangeLoaded" diameter="150"></mat-spinner>
+  </div>
+
+  <!-- <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field> -->
+
+  <table *ngIf="isDataExchangeLoaded" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     
     <!-- Ticker Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Par </th>
-      <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
+    <ng-container matColumnDef="symbol" sticky>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Par </th>
+      <td mat-cell *matCellDef="let coin"> {{ coin.symbol }} </td>
     </ng-container>
   
     <!-- Exchages Columns -->    
     <ng-container matColumnDef="binance">
       <th mat-header-cell *matHeaderCellDef> Binance </th>
-      <td mat-cell *matCellDef="let coin"> {{coin.prices.binance}} </td>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.binance }} </td>
     </ng-container>
 
     <ng-container matColumnDef="kucoin">
       <th mat-header-cell *matHeaderCellDef> Kucoin </th>
-      <td mat-cell *matCellDef="let coin"> {{coin.prices.kucoin}} </td>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.kucoin }} </td>
     </ng-container>
 
     <ng-container matColumnDef="bybit">
       <th mat-header-cell *matHeaderCellDef> Bybit </th>
-      <td mat-cell *matCellDef="let coin"> {{coin.prices.bybit}} </td>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.bybit }} </td>
     </ng-container>
 
     <ng-container matColumnDef="poloniex">
       <th mat-header-cell *matHeaderCellDef> Poloniex </th>
-      <td mat-cell *matCellDef="let coin"> {{coin.prices.poloniex}} </td>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.poloniex }} </td>
     </ng-container>
 
     <ng-container matColumnDef="ftx">
       <th mat-header-cell *matHeaderCellDef> FTX </th>
-      <td mat-cell *matCellDef="let coin"> {{coin.prices.ftx}} </td>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.ftx }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hitbtc">
+      <th mat-header-cell *matHeaderCellDef> Hitbtc </th>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.hitbtc }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="huobi">
+      <th mat-header-cell *matHeaderCellDef> Huobi </th>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.huobi }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="coinex">
+      <th mat-header-cell *matHeaderCellDef> Coinex </th>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.coinex }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="kraken">
+      <th mat-header-cell *matHeaderCellDef> Kraken </th>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.kraken }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="gateio">
+      <th mat-header-cell *matHeaderCellDef> Gate.io </th>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.gateIo }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bittrex">
+      <th mat-header-cell *matHeaderCellDef> Bittrex </th>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.bittrex }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bitfinex">
+      <th mat-header-cell *matHeaderCellDef> Bitfinex </th>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.bitfinex }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mexc">
+      <th mat-header-cell *matHeaderCellDef> Mexc </th>
+      <td mat-cell *matCellDef="let coin"> {{ coin.prices.mexc }} </td>
     </ng-container>
 
     <ng-container matColumnDef="profit">
@@ -42,7 +91,10 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
   </table>
+
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"></mat-paginator>
   
 </body>
 

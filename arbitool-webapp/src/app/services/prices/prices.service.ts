@@ -31,6 +31,50 @@ export class PricesService {
   public getFTXPrices() {
     return this.http.get(ConstantURL.ftx.url).toPromise();
   }
+
+  public getKrakenPrices() {
+    return this.http.get(ConstantURL.kraken.url).toPromise();
+  }
+
+  public getCoinbasePrices() {
+    return this.http.get(ConstantURL.coinbase.url).toPromise();
+  }
+
+  public getCexPrices() {
+    return this.http.get(ConstantURL.cex.url).toPromise();
+  }
+
+  public getGateIoPrices() {
+    return this.http.get(ConstantURL.gate_io.url).toPromise();
+  }
+
+  public getHuobiPrices() {
+    return this.http.get(ConstantURL.houbi.url).toPromise();
+  }
+
+  public getHitbtcPrices() {
+    return this.http.get(ConstantURL.hitbtc.url).toPromise();
+  }
+
+  public getBitfinexPrices() {
+    return this.http.get(ConstantURL.bitfinex.url).toPromise();
+  }
+
+  public getBittrexPrices() {
+    return this.http.get(ConstantURL.bittrex.url).toPromise();
+  }
+
+  public getUpbitPrices() {
+    return this.http.get(ConstantURL.upbit.url).toPromise();
+  }
+
+  public getMexcPrices() {
+    return this.http.get(ConstantURL.mexc.url).toPromise();
+  }
+
+  public getCoinexrices() {
+    return this.http.get(ConstantURL.coinex.url).toPromise();
+  }
   
 
 }
